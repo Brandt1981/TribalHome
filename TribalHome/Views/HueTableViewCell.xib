@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="KGk-i7-Jjw" customClass="HueTableViewCell" customModule="TribalHome" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAh-NP-NQ3">
+                        <rect key="frame" x="16" y="11" width="38" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKH-qE-gDg">
+                        <rect key="frame" x="275" y="11" width="29" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <slider opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="RiI-Dp-UOV">
+                        <rect key="frame" x="13" y="47" width="293" height="31"/>
+                        <connections>
+                            <action selector="hueSliderValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="7ZP-ZL-dvm"/>
+                        </connections>
+                    </slider>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TAh-NP-NQ3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="6R5-P9-Eo8"/>
+                    <constraint firstItem="TAh-NP-NQ3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="IG6-bq-V1l"/>
+                    <constraint firstAttribute="trailing" secondItem="pKH-qE-gDg" secondAttribute="trailing" constant="16" id="O2M-ZQ-Qfk"/>
+                    <constraint firstAttribute="bottom" secondItem="pKH-qE-gDg" secondAttribute="bottom" constant="55.5" id="S9m-1u-XA2"/>
+                    <constraint firstItem="RiI-Dp-UOV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="T6b-co-2Ke"/>
+                    <constraint firstItem="pKH-qE-gDg" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="VFt-Zs-fiW"/>
+                    <constraint firstItem="RiI-Dp-UOV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="47" id="XMI-0W-a0q"/>
+                    <constraint firstAttribute="bottom" secondItem="TAh-NP-NQ3" secondAttribute="bottom" constant="55.5" id="YAi-Dx-run"/>
+                    <constraint firstItem="pKH-qE-gDg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="275" id="jRe-xj-L3G"/>
+                    <constraint firstAttribute="bottom" secondItem="RiI-Dp-UOV" secondAttribute="bottom" constant="10.5" id="ksc-FT-Dis"/>
+                    <constraint firstAttribute="trailing" secondItem="RiI-Dp-UOV" secondAttribute="trailing" constant="16" id="lEx-dV-GnK"/>
+                    <constraint firstAttribute="trailing" secondItem="TAh-NP-NQ3" secondAttribute="trailing" constant="266" id="xo9-PD-nVU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="hueSlider" destination="RiI-Dp-UOV" id="7D0-eC-lpl"/>
+                <outlet property="hueValueLabel" destination="pKH-qE-gDg" id="MAV-MT-Qtc"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
