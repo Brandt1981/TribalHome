@@ -17,10 +17,19 @@ class AccessoriesTableViewController: UITableViewController {
 
     var home: HMHome!
     
+    var room: HMRoom?
+    
     private var accessories: [HMAccessory] {
     
-        return home.accessories
-    
+        if room != nil {
+        
+            return (room?.accessories)!
+        
+        } else {
+        
+            return home.accessories
+        }
+        
     }
     
     private var selectedAccessory: HMAccessory?
@@ -56,7 +65,7 @@ extension AccessoriesTableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return home.name
+        return room?.name ?? home.name
         
     }
     

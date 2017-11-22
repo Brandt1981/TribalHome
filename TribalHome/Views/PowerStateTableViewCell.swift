@@ -18,7 +18,10 @@ class PowerStateTableViewCell: UITableViewCell {
         didSet {
             textLabel?.text = characteristic.localizedDescription
             powerSwitch.addTarget(self, action: #selector(handlePowerSwitchUpdate(_:)), for: .valueChanged)
-            powerSwitch.setOn(characteristic.value as! Bool, animated: false)
+            
+            if let onState = characteristic.value as? Bool {
+                powerSwitch.setOn(onState, animated: false)
+            }
         }
         
     }
@@ -29,9 +32,11 @@ class PowerStateTableViewCell: UITableViewCell {
 
 extension PowerStateTableViewCell {
     
-    func configure(with characteristic: HMCharacteristic) {
+    func configure(with characteristic: HMCharacteristic!) {
         
         self.characteristic = characteristic
+        
+        selectionStyle = .none
         
         accessoryView = powerSwitch
         
@@ -47,7 +52,9 @@ extension PowerStateTableViewCell {
                 
             }
             
-            self.powerSwitch.setOn(self.characteristic.value as! Bool, animated: true)
+            if let onState = self.characteristic.value as? Bool {
+                self.powerSwitch.setOn(onState, animated: true)
+            }
             
         })
         

@@ -60,7 +60,7 @@ class BrightnessTableViewCell: UITableViewCell {
 
 extension BrightnessTableViewCell {
     
-    func configure(with characteristic: HMCharacteristic) {
+    func configure(with characteristic: HMCharacteristic!) {
         
         self.characteristic = characteristic
                 

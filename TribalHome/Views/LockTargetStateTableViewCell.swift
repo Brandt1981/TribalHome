@@ -58,7 +58,7 @@ class LockTargetStateTableViewCell: UITableViewCell {
 
 extension LockTargetStateTableViewCell {
     
-    func configure(with characteristic: HMCharacteristic) {
+    func configure(with characteristic: HMCharacteristic!) {
         
         self.characteristic = characteristic
         

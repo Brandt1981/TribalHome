@@ -10,6 +10,8 @@
 		AB12B7C91FBB9BE6000A0171 /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB12B7C81FBB9BE6000A0171 /* HomeKit.framework */; };
 		AB1CF53A1FBE3AE6006A233D /* IdentifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1CF5381FBE3AE6006A233D /* IdentifyTableViewCell.swift */; };
 		AB1CF53B1FBE3AE6006A233D /* IdentifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1CF5391FBE3AE6006A233D /* IdentifyTableViewCell.xib */; };
+		AB1F03031FC5565100582433 /* RoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1F03021FC5565100582433 /* RoomsTableViewController.swift */; };
+		AB1F03051FC5590000582433 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1F03041FC5590000582433 /* HomeTableViewController.swift */; };
 		AB43AEB71FBBB5C100F0D2C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB43AEAE1FBBB5C100F0D2C2 /* Assets.xcassets */; };
 		AB43AEB81FBBB5C100F0D2C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB43AEB01FBBB5C100F0D2C2 /* LaunchScreen.storyboard */; };
 		AB43AEB91FBBB5C100F0D2C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB43AEB21FBBB5C100F0D2C2 /* Main.storyboard */; };
@@ -18,6 +20,9 @@
 		AB43AEBE1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEBD1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift */; };
 		AB43AEC01FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEBF1FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift */; };
 		AB43AEC31FBD0EC900F0D2C2 /* ServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEC21FBD0EC900F0D2C2 /* ServicesTableViewController.swift */; };
+		AB89E5AC1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89E5AB1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift */; };
+		AB89E5AE1FC5EB22005ADF99 /* ActionSetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */; };
+		AB89E5B01FC5ED2A005ADF99 /* ZonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89E5AF1FC5ED2A005ADF99 /* ZonesTableViewController.swift */; };
 		AB90CD721FBD6FAD001810DD /* BrightnessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB90CD701FBD6FAD001810DD /* BrightnessTableViewCell.xib */; };
 		AB90CD741FBD7235001810DD /* BrightnessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90CD731FBD7235001810DD /* BrightnessTableViewCell.swift */; };
 		ABE0002B1FBE3F82004A1009 /* HueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE000291FBE3F82004A1009 /* HueTableViewCell.swift */; };
@@ -35,6 +40,8 @@
 		AB12B7C81FBB9BE6000A0171 /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 		AB1CF5381FBE3AE6006A233D /* IdentifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyTableViewCell.swift; sourceTree = "<group>"; };
 		AB1CF5391FBE3AE6006A233D /* IdentifyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentifyTableViewCell.xib; sourceTree = "<group>"; };
+		AB1F03021FC5565100582433 /* RoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewController.swift; sourceTree = "<group>"; };
+		AB1F03041FC5590000582433 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		AB43AEAE1FBBB5C100F0D2C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB43AEAF1FBBB5C100F0D2C2 /* TribalHome.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TribalHome.entitlements; sourceTree = "<group>"; };
 		AB43AEB11FBBB5C100F0D2C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,6 +52,9 @@
 		AB43AEBD1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoriesTableViewController.swift; sourceTree = "<group>"; };
 		AB43AEBF1FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryBrowserTableViewController.swift; sourceTree = "<group>"; };
 		AB43AEC21FBD0EC900F0D2C2 /* ServicesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTableViewController.swift; sourceTree = "<group>"; };
+		AB89E5AB1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceGroupsTableViewController.swift; sourceTree = "<group>"; };
+		AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetsTableViewController.swift; sourceTree = "<group>"; };
+		AB89E5AF1FC5ED2A005ADF99 /* ZonesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonesTableViewController.swift; sourceTree = "<group>"; };
 		AB90CD701FBD6FAD001810DD /* BrightnessTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrightnessTableViewCell.xib; sourceTree = "<group>"; };
 		AB90CD731FBD7235001810DD /* BrightnessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightnessTableViewCell.swift; sourceTree = "<group>"; };
 		ABE000291FBE3F82004A1009 /* HueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,9 +124,14 @@
 			children = (
 				AB43AEBD1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift */,
 				AB43AEBF1FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift */,
+				AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */,
 				ABF25C901FBD12C700524682 /* CharacteristicsTableViewController.swift */,
 				AB43AEB51FBBB5C100F0D2C2 /* HomesTableViewController.swift */,
+				AB1F03041FC5590000582433 /* HomeTableViewController.swift */,
+				AB1F03021FC5565100582433 /* RoomsTableViewController.swift */,
+				AB89E5AB1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift */,
 				AB43AEC21FBD0EC900F0D2C2 /* ServicesTableViewController.swift */,
+				AB89E5AF1FC5ED2A005ADF99 /* ZonesTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -223,10 +238,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB43AEBE1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift in Sources */,
+				AB89E5B01FC5ED2A005ADF99 /* ZonesTableViewController.swift in Sources */,
 				AB43AEBB1FBBB5C100F0D2C2 /* HomesTableViewController.swift in Sources */,
+				AB89E5AE1FC5EB22005ADF99 /* ActionSetsTableViewController.swift in Sources */,
 				ABF25C941FBD281600524682 /* PowerStateTableViewCell.swift in Sources */,
 				AB43AEBA1FBBB5C100F0D2C2 /* AppDelegate.swift in Sources */,
+				AB89E5AC1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift in Sources */,
+				AB1F03051FC5590000582433 /* HomeTableViewController.swift in Sources */,
 				AB43AEC01FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift in Sources */,
+				AB1F03031FC5565100582433 /* RoomsTableViewController.swift in Sources */,
 				ABE000351FBE5285004A1009 /* LockTargetStateTableViewCell.swift in Sources */,
 				AB1CF53A1FBE3AE6006A233D /* IdentifyTableViewCell.swift in Sources */,
 				ABE0002B1FBE3F82004A1009 /* HueTableViewCell.swift in Sources */,

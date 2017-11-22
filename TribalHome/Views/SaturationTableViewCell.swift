@@ -60,7 +60,7 @@ class SaturationTableViewCell: UITableViewCell {
 
 extension SaturationTableViewCell {
     
-    func configure(with characteristic: HMCharacteristic) {
+    func configure(with characteristic: HMCharacteristic!) {
         
         self.characteristic = characteristic
         

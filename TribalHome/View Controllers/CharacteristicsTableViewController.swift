@@ -153,6 +153,8 @@ extension CharacteristicsTableViewController {
             
             cell.textLabel?.text = characteristic.localizedDescription
             
+            cell.selectionStyle = .none
+            
             if characteristic.properties.contains(HMCharacteristicPropertyReadable) {
                 
                 let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)

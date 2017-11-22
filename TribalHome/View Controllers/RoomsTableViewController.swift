@@ -1,43 +1,36 @@
 //
-//  HomesTableViewController.swift
-//  HomeKitDemo
+//  RoomsTableViewController.swift
+//  TribalHome
 //
-//  Created by TSL043 on 11/14/17.
-//  Copyright © 2017 Brandt Daniels. All rights reserved.
+//  Created by TSL043 on 11/21/17.
+//  Copyright © 2017 TribalScale. All rights reserved.
 //
 
 import HomeKit
 import UIKit
 
-let homeSegueIdentifier = "HomeSegueIdentifier"
+let roomAccessoriesSegueIdentifier = "RoomAccessoriesSegueIdentifier"
 
-class HomesTableViewController: UITableViewController {
+class RoomsTableViewController: UITableViewController {
 
-    private let homeManager = HMHomeManager()
+    var home: HMHome!
     
-    private var selectedHome: HMHome?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private var rooms: [HMRoom] {
         
-        homeManager.delegate = self
+        return home.rooms
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        tableView.reloadData()
-
-    }
+    private var selectedRoom: HMRoom?
     
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let homeTVC = segue.destination as? HomeTableViewController, let home = selectedHome {
+        if let accessoriesTVC = segue.destination as? AccessoriesTableViewController {
             
-            homeTVC.home = home
+            accessoriesTVC.home = home
+            accessoriesTVC.room = selectedRoom
             
         }
         
@@ -47,58 +40,57 @@ class HomesTableViewController: UITableViewController {
 
 // MARK: - UITableViewDataSource
 
-extension HomesTableViewController {
+extension RoomsTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return homeManager.homes.count
+        return rooms.count
         
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        return home.name
+        
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        let home = homeManager.homes[indexPath.row]
+        let room = rooms[indexPath.row]
         
-        cell.textLabel?.text = home.name
-        
-        cell.detailTextLabel?.text = home.isPrimary ? "(Primary)" : nil
-            
+        cell.textLabel?.text = room.name
         
         return cell
-        
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         
-        let home = homeManager.homes[indexPath.row]
-        
-        return !home.isPrimary
+        return true
         
     }
     
     override func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCellEditingStyle,
-                   forRowAt indexPath: IndexPath) {
+                            commit editingStyle: UITableViewCellEditingStyle,
+                            forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
             
-            let home = homeManager.homes[indexPath.row]
+            let room = rooms[indexPath.row]
             
-            let alert = UIAlertController(title: "Delete Home", message: "Are you sure you want to permanently delete \(home.name)?", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "Delete Room", message: "Are you sure you want to permanently delete \(room.name)?", preferredStyle: .actionSheet)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { deleteAction in
                 
-                self.homeManager.removeHome(home, completionHandler: { error in
+                self.home.removeRoom(room, completionHandler: { error in
                     
                     guard error == nil else {
                         
-                        print("Error removing home: \(String(describing: home)), error: \(String(describing: error))")
-
+                        print("Error removing room: \(String(describing: room)), error: \(String(describing: error))")
+                        
                         return
                     }
                     
@@ -121,26 +113,26 @@ extension HomesTableViewController {
 
 // MARK: - UITableViewDelegate
 
-extension HomesTableViewController {
+extension RoomsTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        selectedRoom = rooms[indexPath.row]
         
-        selectedHome = homeManager.homes[indexPath.row]
-        
-        performSegue(withIdentifier: homeSegueIdentifier, sender: self)
-        
+        performSegue(withIdentifier: roomAccessoriesSegueIdentifier, sender: self)
+    
     }
     
 }
 
 // MARK: - IBAction
 
-extension HomesTableViewController {
+extension RoomsTableViewController {
     
-    @IBAction private func addHomeButtonTapped() {
+    @IBAction private func addRoomButtonTapped() {
         
-        let alertController = UIAlertController(title: "New Home", message: "What is the name of the new home?", preferredStyle: .alert)
-
+        let alertController = UIAlertController(title: "New Room", message: "What is the name of the new room?", preferredStyle: .alert)
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         let addAction = UIAlertAction(title: "Add", style: .default) { [weak alertController] _ in
@@ -149,24 +141,25 @@ extension HomesTableViewController {
                 
                 let nameTextField = alertController.textFields![0] as UITextField
                 
-                let name = nameTextField.text ?? "Home"
+                let name = nameTextField.text ?? "Room"
                 
-                self.homeManager.addHome(withName: name) { home, error in
+                self.home.addRoom(withName: name, completionHandler: { room, error in
                     
                     guard error == nil else {
                         
-                        print("Error adding home: \(String(describing: home)), error: \(String(describing: error))")
+                        print("Error adding room: \(String(describing: room)), error: \(String(describing: error))")
                         
                         return
                     }
                     
-                    guard home != nil else {
+                    guard room != nil else {
                         return
                     }
                     
                     self.tableView.reloadData()
-
-                }
+                    
+                })
+                
             }
         }
         
@@ -179,7 +172,7 @@ extension HomesTableViewController {
             
             textField.placeholder = "Name"
             textField.autocapitalizationType = .words
-
+            
             NotificationCenter.default.addObserver(
                 forName: Notification.Name.UITextFieldTextDidChange,
                 object: textField,
@@ -193,24 +186,6 @@ extension HomesTableViewController {
         }
         
         present(alertController, animated: true, completion: nil)
-
-    }
-    
-}
-
-// MARK: - HMHomeManagerDelegate
-
-extension HomesTableViewController: HMHomeManagerDelegate {
-    
-    func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
-        
-        tableView.reloadData()
-        
-    }
-    
-    func homeManager(_ manager: HMHomeManager, didRemove home: HMHome) {
-        
-        tableView.reloadData()
         
     }
     

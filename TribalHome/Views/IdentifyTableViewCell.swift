@@ -31,7 +31,7 @@ class IdentifyTableViewCell: UITableViewCell {
 
 extension IdentifyTableViewCell {
     
-    func configure(with characteristic: HMCharacteristic) {
+    func configure(with characteristic: HMCharacteristic!) {
         
         self.characteristic = characteristic
         
