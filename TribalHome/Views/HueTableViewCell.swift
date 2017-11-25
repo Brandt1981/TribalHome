@@ -26,7 +26,7 @@ class HueTableViewCell: UITableViewCell {
                     return
                 }
                 
-                self.hueValueLabel.text = (self.characteristic.value as AnyObject).description
+                self.hueValueLabel.text = (self.characteristic.value as AnyObject).description + "°"
                 self.hueSlider.setValue(self.characteristic.value as! Float, animated: false)
                 
             })
@@ -39,9 +39,15 @@ class HueTableViewCell: UITableViewCell {
     
     @IBOutlet weak var hueSlider: UISlider!
     
-    @IBAction func hueSliderValueChanged(_ sender: UISlider) {
+    @IBAction func hueValueChanged(_ sender: UISlider) {
         
-        characteristic.writeValue(Int(hueSlider.value), completionHandler: { error in
+        self.hueValueLabel.text = String(describing: Int(sender.value)) + "°"
+        
+    }
+    
+    @IBAction func hueUpdated(_ sender: UISlider) {
+        
+        characteristic.writeValue(Int(sender.value), completionHandler: { error in
             
             guard error == nil else {
                 
@@ -49,7 +55,7 @@ class HueTableViewCell: UITableViewCell {
                 
             }
             
-            self.hueValueLabel.text = (self.characteristic.value as AnyObject).description
+            self.hueValueLabel.text = (self.characteristic.value as AnyObject).description + "°"
             self.hueSlider.setValue(self.characteristic.value as! Float, animated: true)
             
         })

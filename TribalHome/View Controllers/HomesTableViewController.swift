@@ -64,8 +64,7 @@ extension HomesTableViewController {
         
         cell.textLabel?.text = home.name
         
-        cell.detailTextLabel?.text = home.isPrimary ? "(Primary)" : nil
-            
+        cell.detailTextLabel?.text = home.isPrimary ? "Primary" : nil
         
         return cell
         
@@ -202,13 +201,25 @@ extension HomesTableViewController {
 
 extension HomesTableViewController: HMHomeManagerDelegate {
     
-    func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
+    func homeManager(_ manager: HMHomeManager, didAdd home: HMHome) {
         
         tableView.reloadData()
         
     }
     
     func homeManager(_ manager: HMHomeManager, didRemove home: HMHome) {
+        
+        tableView.reloadData()
+        
+    }
+    
+    func homeManagerDidUpdateHomes(_ manager: HMHomeManager) {
+        
+        tableView.reloadData()
+        
+    }
+    
+    func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
         
         tableView.reloadData()
         

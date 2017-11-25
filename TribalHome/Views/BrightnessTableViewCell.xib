@@ -34,8 +34,9 @@
                     <slider opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Fis-7M-jZ3">
                         <rect key="frame" x="13" y="47" width="293" height="31"/>
                         <connections>
-                            <action selector="brightnessSliderValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="j9U-yq-swl"/>
                             <action selector="brightnessSliderValueChanged:" destination="-2" eventType="valueChanged" id="qXy-ft-DDf"/>
+                            <action selector="brightnessUpdated:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="RF4-hq-OKH"/>
+                            <action selector="brightnessValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="j9U-yq-swl"/>
                         </connections>
                     </slider>
                 </subviews>

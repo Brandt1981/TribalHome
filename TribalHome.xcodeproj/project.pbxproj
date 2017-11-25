@@ -12,6 +12,7 @@
 		AB1CF53B1FBE3AE6006A233D /* IdentifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1CF5391FBE3AE6006A233D /* IdentifyTableViewCell.xib */; };
 		AB1F03031FC5565100582433 /* RoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1F03021FC5565100582433 /* RoomsTableViewController.swift */; };
 		AB1F03051FC5590000582433 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1F03041FC5590000582433 /* HomeTableViewController.swift */; };
+		AB407DA01FC9078C00BC2F7B /* AccessoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB407D9F1FC9078C00BC2F7B /* AccessoryTableViewController.swift */; };
 		AB43AEB71FBBB5C100F0D2C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB43AEAE1FBBB5C100F0D2C2 /* Assets.xcassets */; };
 		AB43AEB81FBBB5C100F0D2C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB43AEB01FBBB5C100F0D2C2 /* LaunchScreen.storyboard */; };
 		AB43AEB91FBBB5C100F0D2C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB43AEB21FBBB5C100F0D2C2 /* Main.storyboard */; };
@@ -19,7 +20,6 @@
 		AB43AEBB1FBBB5C100F0D2C2 /* HomesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEB51FBBB5C100F0D2C2 /* HomesTableViewController.swift */; };
 		AB43AEBE1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEBD1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift */; };
 		AB43AEC01FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEBF1FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift */; };
-		AB43AEC31FBD0EC900F0D2C2 /* ServicesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEC21FBD0EC900F0D2C2 /* ServicesTableViewController.swift */; };
 		AB89E5AC1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89E5AB1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift */; };
 		AB89E5AE1FC5EB22005ADF99 /* ActionSetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */; };
 		AB89E5B01FC5ED2A005ADF99 /* ZonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89E5AF1FC5ED2A005ADF99 /* ZonesTableViewController.swift */; };
@@ -31,8 +31,14 @@
 		ABE000301FBE3F90004A1009 /* SaturationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE0002E1FBE3F90004A1009 /* SaturationTableViewCell.xib */; };
 		ABE000351FBE5285004A1009 /* LockTargetStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE000331FBE5285004A1009 /* LockTargetStateTableViewCell.swift */; };
 		ABE000361FBE5285004A1009 /* LockTargetStateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE000341FBE5285004A1009 /* LockTargetStateTableViewCell.xib */; };
-		ABF25C911FBD12C700524682 /* CharacteristicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF25C901FBD12C700524682 /* CharacteristicsTableViewController.swift */; };
 		ABF25C941FBD281600524682 /* PowerStateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF25C931FBD281600524682 /* PowerStateTableViewCell.swift */; };
+		ABFF9FFB1FC91532007E1CDC /* RotationSpeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF9FF91FC91532007E1CDC /* RotationSpeedTableViewCell.swift */; };
+		ABFF9FFC1FC91532007E1CDC /* RotationSpeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABFF9FFA1FC91532007E1CDC /* RotationSpeedTableViewCell.xib */; };
+		ABFF9FFE1FC937BD007E1CDC /* EditAccessoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF9FFD1FC937BD007E1CDC /* EditAccessoryTableViewController.swift */; };
+		ABFFA0011FC93E21007E1CDC /* RemoveAccessoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFF9FFF1FC93E21007E1CDC /* RemoveAccessoryTableViewCell.swift */; };
+		ABFFA0021FC93E21007E1CDC /* RemoveAccessoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABFFA0001FC93E21007E1CDC /* RemoveAccessoryTableViewCell.xib */; };
+		ABFFA0051FC9559C007E1CDC /* RotationDirectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFFA0031FC9559C007E1CDC /* RotationDirectionTableViewCell.swift */; };
+		ABFFA0061FC9559C007E1CDC /* RotationDirectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABFFA0041FC9559C007E1CDC /* RotationDirectionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +48,7 @@
 		AB1CF5391FBE3AE6006A233D /* IdentifyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentifyTableViewCell.xib; sourceTree = "<group>"; };
 		AB1F03021FC5565100582433 /* RoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewController.swift; sourceTree = "<group>"; };
 		AB1F03041FC5590000582433 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		AB407D9F1FC9078C00BC2F7B /* AccessoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryTableViewController.swift; sourceTree = "<group>"; };
 		AB43AEAE1FBBB5C100F0D2C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB43AEAF1FBBB5C100F0D2C2 /* TribalHome.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TribalHome.entitlements; sourceTree = "<group>"; };
 		AB43AEB11FBBB5C100F0D2C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,7 +58,6 @@
 		AB43AEB61FBBB5C100F0D2C2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB43AEBD1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoriesTableViewController.swift; sourceTree = "<group>"; };
 		AB43AEBF1FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryBrowserTableViewController.swift; sourceTree = "<group>"; };
-		AB43AEC21FBD0EC900F0D2C2 /* ServicesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesTableViewController.swift; sourceTree = "<group>"; };
 		AB89E5AB1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceGroupsTableViewController.swift; sourceTree = "<group>"; };
 		AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetsTableViewController.swift; sourceTree = "<group>"; };
 		AB89E5AF1FC5ED2A005ADF99 /* ZonesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonesTableViewController.swift; sourceTree = "<group>"; };
@@ -63,8 +69,14 @@
 		ABE0002E1FBE3F90004A1009 /* SaturationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SaturationTableViewCell.xib; sourceTree = "<group>"; };
 		ABE000331FBE5285004A1009 /* LockTargetStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockTargetStateTableViewCell.swift; sourceTree = "<group>"; };
 		ABE000341FBE5285004A1009 /* LockTargetStateTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LockTargetStateTableViewCell.xib; sourceTree = "<group>"; };
-		ABF25C901FBD12C700524682 /* CharacteristicsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsTableViewController.swift; sourceTree = "<group>"; };
 		ABF25C931FBD281600524682 /* PowerStateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerStateTableViewCell.swift; sourceTree = "<group>"; };
+		ABFF9FF91FC91532007E1CDC /* RotationSpeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationSpeedTableViewCell.swift; sourceTree = "<group>"; };
+		ABFF9FFA1FC91532007E1CDC /* RotationSpeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RotationSpeedTableViewCell.xib; sourceTree = "<group>"; };
+		ABFF9FFD1FC937BD007E1CDC /* EditAccessoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccessoryTableViewController.swift; sourceTree = "<group>"; };
+		ABFF9FFF1FC93E21007E1CDC /* RemoveAccessoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveAccessoryTableViewCell.swift; sourceTree = "<group>"; };
+		ABFFA0001FC93E21007E1CDC /* RemoveAccessoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoveAccessoryTableViewCell.xib; sourceTree = "<group>"; };
+		ABFFA0031FC9559C007E1CDC /* RotationDirectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationDirectionTableViewCell.swift; sourceTree = "<group>"; };
+		ABFFA0041FC9559C007E1CDC /* RotationDirectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RotationDirectionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,13 +136,13 @@
 			children = (
 				AB43AEBD1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift */,
 				AB43AEBF1FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift */,
+				AB407D9F1FC9078C00BC2F7B /* AccessoryTableViewController.swift */,
 				AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */,
-				ABF25C901FBD12C700524682 /* CharacteristicsTableViewController.swift */,
+				ABFF9FFD1FC937BD007E1CDC /* EditAccessoryTableViewController.swift */,
 				AB43AEB51FBBB5C100F0D2C2 /* HomesTableViewController.swift */,
 				AB1F03041FC5590000582433 /* HomeTableViewController.swift */,
 				AB1F03021FC5565100582433 /* RoomsTableViewController.swift */,
 				AB89E5AB1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift */,
-				AB43AEC21FBD0EC900F0D2C2 /* ServicesTableViewController.swift */,
 				AB89E5AF1FC5ED2A005ADF99 /* ZonesTableViewController.swift */,
 			);
 			path = "View Controllers";
@@ -148,6 +160,12 @@
 				ABE000331FBE5285004A1009 /* LockTargetStateTableViewCell.swift */,
 				ABE000341FBE5285004A1009 /* LockTargetStateTableViewCell.xib */,
 				ABF25C931FBD281600524682 /* PowerStateTableViewCell.swift */,
+				ABFF9FFF1FC93E21007E1CDC /* RemoveAccessoryTableViewCell.swift */,
+				ABFFA0001FC93E21007E1CDC /* RemoveAccessoryTableViewCell.xib */,
+				ABFFA0031FC9559C007E1CDC /* RotationDirectionTableViewCell.swift */,
+				ABFFA0041FC9559C007E1CDC /* RotationDirectionTableViewCell.xib */,
+				ABFF9FF91FC91532007E1CDC /* RotationSpeedTableViewCell.swift */,
+				ABFF9FFA1FC91532007E1CDC /* RotationSpeedTableViewCell.xib */,
 				ABE0002D1FBE3F90004A1009 /* SaturationTableViewCell.swift */,
 				ABE0002E1FBE3F90004A1009 /* SaturationTableViewCell.xib */,
 			);
@@ -222,9 +240,12 @@
 				ABE0002C1FBE3F82004A1009 /* HueTableViewCell.xib in Resources */,
 				AB90CD721FBD6FAD001810DD /* BrightnessTableViewCell.xib in Resources */,
 				ABE000361FBE5285004A1009 /* LockTargetStateTableViewCell.xib in Resources */,
+				ABFF9FFC1FC91532007E1CDC /* RotationSpeedTableViewCell.xib in Resources */,
 				AB43AEB91FBBB5C100F0D2C2 /* Main.storyboard in Resources */,
 				AB1CF53B1FBE3AE6006A233D /* IdentifyTableViewCell.xib in Resources */,
+				ABFFA0021FC93E21007E1CDC /* RemoveAccessoryTableViewCell.xib in Resources */,
 				AB43AEB71FBBB5C100F0D2C2 /* Assets.xcassets in Resources */,
+				ABFFA0061FC9559C007E1CDC /* RotationDirectionTableViewCell.xib in Resources */,
 				ABE000301FBE3F90004A1009 /* SaturationTableViewCell.xib in Resources */,
 				AB43AEB81FBBB5C100F0D2C2 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -238,22 +259,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB43AEBE1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift in Sources */,
+				ABFF9FFB1FC91532007E1CDC /* RotationSpeedTableViewCell.swift in Sources */,
 				AB89E5B01FC5ED2A005ADF99 /* ZonesTableViewController.swift in Sources */,
 				AB43AEBB1FBBB5C100F0D2C2 /* HomesTableViewController.swift in Sources */,
 				AB89E5AE1FC5EB22005ADF99 /* ActionSetsTableViewController.swift in Sources */,
+				ABFFA0051FC9559C007E1CDC /* RotationDirectionTableViewCell.swift in Sources */,
 				ABF25C941FBD281600524682 /* PowerStateTableViewCell.swift in Sources */,
+				ABFF9FFE1FC937BD007E1CDC /* EditAccessoryTableViewController.swift in Sources */,
 				AB43AEBA1FBBB5C100F0D2C2 /* AppDelegate.swift in Sources */,
 				AB89E5AC1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift in Sources */,
 				AB1F03051FC5590000582433 /* HomeTableViewController.swift in Sources */,
+				ABFFA0011FC93E21007E1CDC /* RemoveAccessoryTableViewCell.swift in Sources */,
 				AB43AEC01FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift in Sources */,
 				AB1F03031FC5565100582433 /* RoomsTableViewController.swift in Sources */,
 				ABE000351FBE5285004A1009 /* LockTargetStateTableViewCell.swift in Sources */,
 				AB1CF53A1FBE3AE6006A233D /* IdentifyTableViewCell.swift in Sources */,
 				ABE0002B1FBE3F82004A1009 /* HueTableViewCell.swift in Sources */,
 				ABE0002F1FBE3F90004A1009 /* SaturationTableViewCell.swift in Sources */,
+				AB407DA01FC9078C00BC2F7B /* AccessoryTableViewController.swift in Sources */,
 				AB90CD741FBD7235001810DD /* BrightnessTableViewCell.swift in Sources */,
-				ABF25C911FBD12C700524682 /* CharacteristicsTableViewController.swift in Sources */,
-				AB43AEC31FBD0EC900F0D2C2 /* ServicesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

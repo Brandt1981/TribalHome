@@ -34,7 +34,8 @@
                     <slider opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="360" translatesAutoresizingMaskIntoConstraints="NO" id="RiI-Dp-UOV">
                         <rect key="frame" x="13" y="47" width="293" height="31"/>
                         <connections>
-                            <action selector="hueSliderValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="7ZP-ZL-dvm"/>
+                            <action selector="hueUpdated:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nV1-kM-6tm"/>
+                            <action selector="hueValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="7ZP-ZL-dvm"/>
                         </connections>
                     </slider>
                 </subviews>

@@ -26,7 +26,7 @@ class BrightnessTableViewCell: UITableViewCell {
                     return
                 }
                 
-                self.brightnessValueLabel.text = (self.characteristic.value as AnyObject).description
+                self.brightnessValueLabel.text = (self.characteristic.value as AnyObject).description + "%"
                 self.brightnessSlider.setValue(self.characteristic.value as! Float, animated: false)
 
             })
@@ -39,9 +39,15 @@ class BrightnessTableViewCell: UITableViewCell {
 
     @IBOutlet weak var brightnessSlider: UISlider!
     
-    @IBAction func brightnessSliderValueChanged(_ sender: UISlider) {
+    @IBAction func brightnessValueChanged(_ sender: UISlider) {
         
-        characteristic.writeValue(Int(brightnessSlider.value), completionHandler: { error in
+        self.brightnessValueLabel.text = String(describing: Int(sender.value)) + "%"
+        
+    }
+    
+    @IBAction func brightnessUpdated(_ sender: UISlider) {
+        
+        characteristic.writeValue(Int(sender.value), completionHandler: { error in
             
             guard error == nil else {
                 
@@ -49,7 +55,7 @@ class BrightnessTableViewCell: UITableViewCell {
                 
             }
             
-            self.brightnessValueLabel.text = (self.characteristic.value as AnyObject).description
+            self.brightnessValueLabel.text = (self.characteristic.value as AnyObject).description + "%"
             self.brightnessSlider.setValue(self.characteristic.value as! Float, animated: true)
             
         })

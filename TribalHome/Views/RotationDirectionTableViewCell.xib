@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="88" id="KGk-i7-Jjw" customClass="RotationDirectionTableViewCell" customModule="TribalHome" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="87.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rotation Direction" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acl-Uf-QdE">
+                        <rect key="frame" x="16" y="11" width="288" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cad-ks-fVW">
+                        <rect key="frame" x="16" y="49" width="288" height="29"/>
+                        <segments>
+                            <segment title="Clockwise"/>
+                            <segment title="Counter-Clockwise"/>
+                        </segments>
+                        <connections>
+                            <action selector="directionChanged" destination="KGk-i7-Jjw" eventType="valueChanged" id="N9o-DP-eDd"/>
+                        </connections>
+                    </segmentedControl>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="acl-Uf-QdE" secondAttribute="bottom" constant="56.5" id="1uF-Bq-Q7G"/>
+                    <constraint firstAttribute="trailing" secondItem="acl-Uf-QdE" secondAttribute="trailing" constant="16" id="AQ6-es-yMt"/>
+                    <constraint firstItem="acl-Uf-QdE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="ECj-B2-XhP"/>
+                    <constraint firstItem="cad-ks-fVW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="49" id="HJN-4l-YAs"/>
+                    <constraint firstItem="cad-ks-fVW" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="KNL-5J-AQe"/>
+                    <constraint firstAttribute="trailing" secondItem="cad-ks-fVW" secondAttribute="trailing" constant="16" id="Q8r-Cf-qy7"/>
+                    <constraint firstItem="acl-Uf-QdE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="i0g-rb-1CN"/>
+                    <constraint firstAttribute="bottom" secondItem="cad-ks-fVW" secondAttribute="bottom" constant="10.5" id="kOR-m0-F4D"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="acl-Uf-QdE" id="nHg-ud-bLH"/>
+                <outlet property="directionSelector" destination="cad-ks-fVW" id="k6g-1o-DQR"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

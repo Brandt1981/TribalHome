@@ -26,7 +26,7 @@ class SaturationTableViewCell: UITableViewCell {
                     return
                 }
                 
-                self.saturationValueLabel.text = (self.characteristic.value as AnyObject).description
+                self.saturationValueLabel.text = (self.characteristic.value as AnyObject).description + "%"
                 self.saturationSlider.setValue(self.characteristic.value as! Float, animated: false)
                 
             })
@@ -39,9 +39,15 @@ class SaturationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var saturationSlider: UISlider!
     
-    @IBAction func saturationSliderValueChanged(_ sender: UISlider) {
+    @IBAction func saturationValueChanged(_ sender: UISlider) {
         
-        characteristic.writeValue(Int(saturationSlider.value), completionHandler: { error in
+        self.saturationValueLabel.text = String(describing: Int(sender.value)) + "%"
+        
+    }
+    
+    @IBAction func saturationUpdated(_ sender: UISlider) {
+        
+        characteristic.writeValue(Int(sender.value), completionHandler: { error in
             
             guard error == nil else {
                 
@@ -49,7 +55,7 @@ class SaturationTableViewCell: UITableViewCell {
                 
             }
             
-            self.saturationValueLabel.text = (self.characteristic.value as AnyObject).description
+            self.saturationValueLabel.text = (self.characteristic.value as AnyObject).description + "%"
             self.saturationSlider.setValue(self.characteristic.value as! Float, animated: true)
             
         })

@@ -9,7 +9,7 @@
 import HomeKit
 import UIKit
 
-let servicesSegueIdentifier = "ServicesSegueIdentifier"
+let accessorySegueIdentifier = "AccessorySegueIdentifier"
 
 let accessoryBrowserSegueIdentifier = "AccessoryBrowserSegueIdentifier"
 
@@ -21,13 +21,14 @@ class AccessoriesTableViewController: UITableViewController {
     
     private var accessories: [HMAccessory] {
     
-        if room != nil {
-        
-            return (room?.accessories)!
-        
+        if let roomAccessories = room?.accessories {
+            
+            return roomAccessories.filter { $0.category.categoryType != HMAccessoryCategoryTypeBridge }.sorted { $0.name < $1.name}
+            
         } else {
-        
-            return home.accessories
+            
+            return home.accessories.filter { $0.category.categoryType != HMAccessoryCategoryTypeBridge }.sorted { $0.name < $1.name}
+            
         }
         
     }
@@ -43,9 +44,10 @@ class AccessoriesTableViewController: UITableViewController {
             
             accessoryBrowserTVC.home = home
             
-        } else if let servicesTVC = segue.destination as? ServicesTableViewController {
-            
-            servicesTVC.accessory = selectedAccessory
+        } else if let accessoryTVC = segue.destination as? AccessoryTableViewController {
+          
+            accessoryTVC.home = home
+            accessoryTVC.accessory = selectedAccessory
             
         }
         
@@ -135,7 +137,7 @@ extension AccessoriesTableViewController {
         
         selectedAccessory = accessories[indexPath.row]
         
-        performSegue(withIdentifier: servicesSegueIdentifier, sender: self)
+        performSegue(withIdentifier: accessorySegueIdentifier, sender: self)
         
     }
     
@@ -151,7 +153,7 @@ private extension AccessoriesTableViewController {
         
     }
     
-    @IBAction private func unwindToAccessoryTable(sender: UIStoryboardSegue) {
+    @IBAction private func unwindToAccessoriesTVC(segue: UIStoryboardSegue) {
         
         tableView.reloadData()
         

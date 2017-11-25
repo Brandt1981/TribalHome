@@ -1,27 +1,39 @@
 //
-//  CharacteristicsTableViewController.swift
+//  AccessoryTableViewController.swift
 //  TribalHome
 //
-//  Created by TSL043 on 11/15/17.
+//  Created by TSL043 on 11/24/17.
 //  Copyright © 2017 TribalScale. All rights reserved.
 //
 
 import HomeKit
 import UIKit
 
-class CharacteristicsTableViewController: UITableViewController {
+let editAccessorySegueIdentifier = "EditAccessorySegueIdentifier"
+
+class AccessoryTableViewController: UITableViewController {
     
-    var service: HMService!
+    var home: HMHome!
     
-    private var characteristics: [HMCharacteristic] {
+    var accessory: HMAccessory! {
         
-        return service.characteristics
+        didSet {
+            
+            navigationItem.title = accessory.name
+            
+        }
         
     }
-
+    
+    private var services: [HMService] {
+        
+        return accessory.services
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         tableView.register(PowerStateTableViewCell.self, forCellReuseIdentifier: powerStateCellReuseIdentifier)
         
         tableView.register(UINib(nibName: brightnessTableViewCellNibName, bundle: nil), forCellReuseIdentifier: String(describing: BrightnessTableViewCell.self))
@@ -34,40 +46,52 @@ class CharacteristicsTableViewController: UITableViewController {
         
         tableView.register(UINib(nibName: identifyTableViewCellNibName, bundle: nil), forCellReuseIdentifier: String(describing: IdentifyTableViewCell.self))
         
-        for characteristic in characteristics {
+        tableView.register(UINib(nibName: String(describing: RotationSpeedTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: RotationSpeedTableViewCell.self))
+        
+        tableView.register(UINib(nibName: String(describing: RotationDirectionTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: RotationDirectionTableViewCell.self))
+        
+        for service in services {
             
-            if characteristic.properties.contains(HMCharacteristicPropertySupportsEventNotification) {
+            for characteristic in service.characteristics {
                 
-                characteristic.enableNotification(true, completionHandler: { error in
+                if characteristic.properties.contains(HMCharacteristicPropertySupportsEventNotification) {
                     
-                    guard error == nil else {
-                        return
-                    }
+                    characteristic.enableNotification(true, completionHandler: { error in
+                        
+                        guard error == nil else {
+                            return
+                        }
+                        
+                    })
                     
-                })
+                }
                 
             }
             
         }
         
-        service.accessory?.delegate = self
-
+        accessory.delegate = self
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        for characteristic in characteristics {
+        for service in services {
             
-            if characteristic.properties.contains(HMCharacteristicPropertySupportsEventNotification) {
+            for characteristic in service.characteristics {
                 
-                characteristic.enableNotification(false, completionHandler: { error in
+                if characteristic.properties.contains(HMCharacteristicPropertySupportsEventNotification) {
                     
-                    guard error == nil else {
-                        return
-                    }
+                    characteristic.enableNotification(false, completionHandler: { error in
+                        
+                        guard error == nil else {
+                            return
+                        }
+                        
+                    })
                     
-                })
+                }
                 
             }
             
@@ -75,27 +99,138 @@ class CharacteristicsTableViewController: UITableViewController {
         
     }
     
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let navController = segue.destination as? UINavigationController,
+        let editAccessoryTVC = navController.topViewController as? EditAccessoryTableViewController {
+            
+            editAccessoryTVC.home = home
+            editAccessoryTVC.accessory = accessory
+            
+        }
+        
+    }
+
 }
 
 // MARK: - UITableViewDataSource
 
-extension CharacteristicsTableViewController {
+extension AccessoryTableViewController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        let sortedServices = sorted(accessory.services)
+        
+        return sortedServices.count
+        
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return characteristics.count
+        let sortedServices = sorted(accessory.services)
+        
+        let service = sortedServices[section]
+        
+        return sorted(service.characteristics).count
         
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        return service.name
+        let sortedServices = sorted(accessory.services)
+        
+        let service = sortedServices[section]
+        
+        return serviceTypeString(for: service)
         
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let characteristic = characteristics[indexPath.row]
+        let sortedServices = sorted(accessory.services)
+        
+        let service = sortedServices[indexPath.section]
+        
+        let characteristic = sorted(service.characteristics)[indexPath.row]
+        
+        return cell(for: characteristic, at: indexPath)
+        
+    }
+    
+}
+
+// MARK: - IBAction
+
+extension AccessoryTableViewController {
+    
+    @IBAction private func editAccessoryTapped() {
+        
+        performSegue(withIdentifier: editAccessorySegueIdentifier, sender: self)
+        
+    }
+    
+    @IBAction private func unwindToAccessoryTable(segue: UIStoryboardSegue) {
+        
+        tableView.reloadData()
+        
+    }
+    
+}
+
+// MARK: - Private
+
+extension AccessoryTableViewController {
+    
+    func sorted(_ services: [HMService]) -> [HMService] {
+        
+        return services.filter { $0.serviceType != HMServiceTypeAccessoryInformation }.sorted { $0.isPrimaryService && !$1.isPrimaryService }
+        
+    }
+    
+    func sorted(_ characteristics: [HMCharacteristic]) -> [HMCharacteristic] {
+
+        return characteristics.filter { $0.characteristicType != HMCharacteristicTypeName }
+        
+    }
+
+    func serviceTypeString(for service: HMService) -> String {
+        
+        var serviceTypeString: String
+        
+        switch service.serviceType {
+            
+        case HMServiceTypeLabel:
+            serviceTypeString = "Label"
+        case HMServiceTypeLightbulb:
+            serviceTypeString = "Light Bulb"
+        case HMServiceTypeSwitch:
+            serviceTypeString = "Switch"
+        case HMServiceTypeThermostat:
+            serviceTypeString = "Thermostat"
+        case HMServiceTypeGarageDoorOpener:
+            serviceTypeString = "Garage Door Opener"
+        case HMServiceTypeAccessoryInformation:
+            serviceTypeString = "Accessory Information"
+        case HMServiceTypeFan:
+            serviceTypeString = "Fan"
+        case HMServiceTypeOutlet:
+            serviceTypeString = "Outlet"
+        case HMServiceTypeLockMechanism:
+            serviceTypeString = "Lock Mechanism"
+        case HMServiceTypeLockManagement:
+            serviceTypeString = "Lock Management"
+        default:
+            serviceTypeString = service.serviceType
+            
+        }
+        
+        return serviceTypeString
+        
+    }
+    
+    func cell(for characteristic: HMCharacteristic, at indexPath: IndexPath) -> UITableViewCell {
         
         if characteristic.characteristicType == HMCharacteristicTypePowerState {
             
@@ -106,7 +241,7 @@ extension CharacteristicsTableViewController {
             return cell
             
         } else if characteristic.characteristicType == HMCharacteristicTypeBrightness {
-        
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: BrightnessTableViewCell.self), for: indexPath) as! BrightnessTableViewCell
             
             cell.configure(with: characteristic)
@@ -145,16 +280,30 @@ extension CharacteristicsTableViewController {
             
             return cell
             
+        } else if characteristic.characteristicType == HMCharacteristicTypeRotationSpeed {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RotationSpeedTableViewCell.self), for: indexPath) as! RotationSpeedTableViewCell
+            
+            cell.configure(with: characteristic)
+            
+            return cell
+            
+        } else if characteristic.characteristicType == HMCharacteristicTypeRotationDirection {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RotationDirectionTableViewCell.self), for: indexPath) as! RotationDirectionTableViewCell
+            
+            cell.configure(with: characteristic)
+            
+            return cell
+            
         }
-        
+            
         else {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-            
+                        
             cell.textLabel?.text = characteristic.localizedDescription
-            
-            cell.selectionStyle = .none
-            
+                        
             if characteristic.properties.contains(HMCharacteristicPropertyReadable) {
                 
                 let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -205,7 +354,7 @@ extension CharacteristicsTableViewController {
                         }
                         
                     } else {
-                    
+                        
                         cell.detailTextLabel?.text = (characteristic.value as AnyObject).description
                         
                     }
@@ -224,15 +373,21 @@ extension CharacteristicsTableViewController {
 
 // MARK: - HMAccessoryDelegate
 
-extension CharacteristicsTableViewController: HMAccessoryDelegate {
+extension AccessoryTableViewController: HMAccessoryDelegate {
     
     func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
         
-        if let index = characteristics.index(of: characteristic) {
+        if let serviceSection = sorted(accessory.services).index(of: service) {
             
-            let indexPath = IndexPath(row: index, section: 0)
+            let service = sorted(accessory.services)[serviceSection]
             
-            tableView.reloadRows(at: [indexPath], with: .none)
+            if let characteristicRow = sorted(service.characteristics).index(of: characteristic) {
+                
+                let indexPath = IndexPath(row: characteristicRow, section: serviceSection)
+                
+                tableView.reloadRows(at: [indexPath], with: .none)
+                
+            }
             
         }
         

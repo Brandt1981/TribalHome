@@ -9,7 +9,7 @@
 import HomeKit
 import UIKit
 
-let accessoriesUnwindSegueIdentifier = "AccessoriesUnwindSegueIdentifier"
+let accessoryBrowserUnwindSegueIdentifier = "AccessoryBrowserUnwindSegueIdentifier"
 
 class AccessoryBrowserTableViewController: UITableViewController {
 
@@ -82,7 +82,7 @@ extension AccessoryBrowserTableViewController {
                 return
             }
             
-            self.performSegue(withIdentifier: accessoriesUnwindSegueIdentifier, sender: self)
+            self.performSegue(withIdentifier: accessoryBrowserUnwindSegueIdentifier, sender: self)
             
         })
         
