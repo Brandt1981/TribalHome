@@ -2,7 +2,7 @@
 //  HomesTableViewController.swift
 //  HomeKitDemo
 //
-//  Created by TSL043 on 11/14/17.
+//  Created by Brandt Daniels on 11/14/17.
 //  Copyright © 2017 Brandt Daniels. All rights reserved.
 //
 

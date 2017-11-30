@@ -2,7 +2,7 @@
 //  AccessoryTableViewController.swift
 //  TribalHome
 //
-//  Created by TSL043 on 11/24/17.
+//  Created by Brandt Daniels on 11/24/17.
 //  Copyright © 2017 TribalScale. All rights reserved.
 //
 
@@ -171,7 +171,7 @@ extension AccessoryTableViewController {
         
     }
     
-    @IBAction private func unwindToAccessoryTable(segue: UIStoryboardSegue) {
+    @IBAction private func unwindToAccessoryTVC(segue: UIStoryboardSegue) {
         
         tableView.reloadData()
         

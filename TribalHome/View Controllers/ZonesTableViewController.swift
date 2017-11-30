@@ -2,12 +2,14 @@
 //  ZonesTableViewController.swift
 //  TribalHome
 //
-//  Created by TSL043 on 11/22/17.
+//  Created by Brandt Daniels on 11/22/17.
 //  Copyright © 2017 TribalScale. All rights reserved.
 //
 
 import HomeKit
 import UIKit
+
+let zoneSegueIdentifier = "ZoneSegueIdentifier"
 
 class ZonesTableViewController: UITableViewController {
 
@@ -19,6 +21,21 @@ class ZonesTableViewController: UITableViewController {
         
     }
 
+    private var selectedZone: HMZone?
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let zoneTVC = segue.destination as? ZoneTableViewController {
+            
+            zoneTVC.home = home
+            zoneTVC.zone = selectedZone
+            
+        }
+        
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -90,6 +107,20 @@ extension ZonesTableViewController {
             present(alert, animated: true, completion: nil)
             
         }
+        
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+
+extension ZonesTableViewController {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedZone = zones[indexPath.row]
+        
+        performSegue(withIdentifier: zoneSegueIdentifier, sender: self)
         
     }
     

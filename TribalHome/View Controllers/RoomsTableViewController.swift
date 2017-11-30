@@ -2,14 +2,14 @@
 //  RoomsTableViewController.swift
 //  TribalHome
 //
-//  Created by TSL043 on 11/21/17.
+//  Created by Brandt Daniels on 11/21/17.
 //  Copyright © 2017 TribalScale. All rights reserved.
 //
 
 import HomeKit
 import UIKit
 
-let roomAccessoriesSegueIdentifier = "RoomAccessoriesSegueIdentifier"
+let roomSegueIdentifier = "RoomSegueIdentifier"
 
 class RoomsTableViewController: UITableViewController {
 
@@ -27,10 +27,10 @@ class RoomsTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let accessoriesTVC = segue.destination as? AccessoriesTableViewController {
+        if let roomTVC = segue.destination as? RoomTableViewController {
             
-            accessoriesTVC.home = home
-            accessoriesTVC.room = selectedRoom
+            roomTVC.home = home
+            roomTVC.room = selectedRoom
             
         }
         
@@ -119,7 +119,7 @@ extension RoomsTableViewController {
     
         selectedRoom = rooms[indexPath.row]
         
-        performSegue(withIdentifier: roomAccessoriesSegueIdentifier, sender: self)
+        performSegue(withIdentifier: roomSegueIdentifier, sender: self)
     
     }
     

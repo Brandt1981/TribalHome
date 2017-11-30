@@ -2,7 +2,7 @@
 //  PowerStateTableViewCell.swift
 //  TribalHome
 //
-//  Created by TSL043 on 11/15/17.
+//  Created by Brandt Daniels on 11/15/17.
 //  Copyright © 2017 TribalScale. All rights reserved.
 //
 

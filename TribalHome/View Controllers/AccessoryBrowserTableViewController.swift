@@ -2,7 +2,7 @@
 //  AccessoryBrowserTableViewController.swift
 //  TribalHome
 //
-//  Created by TSL043 on 11/14/17.
+//  Created by Brandt Daniels on 11/14/17.
 //  Copyright © 2017 TribalScale. All rights reserved.
 //
 
