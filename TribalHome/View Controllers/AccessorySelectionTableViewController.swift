@@ -1,5 +1,5 @@
 //
-//  RoomSelectionTableViewController.swift
+//  AccessorySelectionTableViewController.swift
 //  TribalHome
 //
 //  Created by Brandt Daniels on 11/29/17.
@@ -9,17 +9,17 @@
 import HomeKit
 import UIKit
 
-class RoomSelectionTableViewController: UITableViewController {
+class AccessorySelectionTableViewController: UITableViewController {
 
     var home: HMHome!
     
-    var zone: HMZone!
+    var room: HMRoom!
     
-    var selectedRooms = [HMRoom]()
+    var selectedAccessories = [HMAccessory]()
     
-    private var availableRooms: [HMRoom] {
+    private var availableAccessories: [HMAccessory] {
         
-        return Array(Set(home.rooms).subtracting(Set(zone.rooms)))
+        return home.roomForEntireHome().accessories
         
     }
     
@@ -27,11 +27,11 @@ class RoomSelectionTableViewController: UITableViewController {
 
 // MARK: - UITableViewDataSource
 
-extension RoomSelectionTableViewController {
+extension AccessorySelectionTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return availableRooms.count
+        return availableAccessories.count
         
     }
     
@@ -40,11 +40,11 @@ extension RoomSelectionTableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        let room = availableRooms[indexPath.row]
+        let accessory = availableAccessories[indexPath.row]
         
-        cell.textLabel?.text = room.name
+        cell.textLabel?.text = accessory.name
         
-        if selectedRooms.contains(room) {
+        if selectedAccessories.contains(accessory) {
             
             cell.accessoryType = .checkmark
             
@@ -61,23 +61,23 @@ extension RoomSelectionTableViewController {
 
 // MARK: - UITableViewDelegate
 
-extension RoomSelectionTableViewController {
+extension AccessorySelectionTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let room = availableRooms[indexPath.row]
+        let accessory = availableAccessories[indexPath.row]
         
-        if selectedRooms.contains(room) {
+        if selectedAccessories.contains(accessory) {
             
-            if let roomIndex = selectedRooms.index(of: room) {
-            
-                selectedRooms.remove(at: roomIndex)
+            if let accessoryIndex = selectedAccessories.index(of: accessory) {
+                
+                selectedAccessories.remove(at: accessoryIndex)
                 
             }
             
         } else {
             
-            selectedRooms.append(room)
+            selectedAccessories.append(accessory)
             
         }
         

@@ -28,6 +28,7 @@
 		AB8F1CC31FCF6C300017778F /* ZoneTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8F1CC21FCF6C300017778F /* ZoneTableViewController.swift */; };
 		AB8F1CC51FCF741D0017778F /* RoomSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8F1CC41FCF741D0017778F /* RoomSelectionTableViewController.swift */; };
 		AB8F1CC71FCF82500017778F /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8F1CC61FCF82500017778F /* RoomTableViewController.swift */; };
+		AB8F1CC91FCF911B0017778F /* AccessorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8F1CC81FCF911B0017778F /* AccessorySelectionTableViewController.swift */; };
 		AB90CD721FBD6FAD001810DD /* BrightnessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB90CD701FBD6FAD001810DD /* BrightnessTableViewCell.xib */; };
 		AB90CD741FBD7235001810DD /* BrightnessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90CD731FBD7235001810DD /* BrightnessTableViewCell.swift */; };
 		ABE0002B1FBE3F82004A1009 /* HueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE000291FBE3F82004A1009 /* HueTableViewCell.swift */; };
@@ -71,6 +72,7 @@
 		AB8F1CC21FCF6C300017778F /* ZoneTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneTableViewController.swift; sourceTree = "<group>"; };
 		AB8F1CC41FCF741D0017778F /* RoomSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectionTableViewController.swift; sourceTree = "<group>"; };
 		AB8F1CC61FCF82500017778F /* RoomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewController.swift; sourceTree = "<group>"; };
+		AB8F1CC81FCF911B0017778F /* AccessorySelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorySelectionTableViewController.swift; sourceTree = "<group>"; };
 		AB90CD701FBD6FAD001810DD /* BrightnessTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrightnessTableViewCell.xib; sourceTree = "<group>"; };
 		AB90CD731FBD7235001810DD /* BrightnessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightnessTableViewCell.swift; sourceTree = "<group>"; };
 		ABE000291FBE3F82004A1009 /* HueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				AB43AEBD1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift */,
 				AB43AEBF1FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift */,
+				AB8F1CC81FCF911B0017778F /* AccessorySelectionTableViewController.swift */,
 				AB407D9F1FC9078C00BC2F7B /* AccessoryTableViewController.swift */,
 				AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */,
 				AB8F1CBE1FCE8F290017778F /* ActionSetTableViewController.swift */,
@@ -296,6 +299,7 @@
 				AB8F1CC71FCF82500017778F /* RoomTableViewController.swift in Sources */,
 				ABE0002F1FBE3F90004A1009 /* SaturationTableViewCell.swift in Sources */,
 				AB407DA01FC9078C00BC2F7B /* AccessoryTableViewController.swift in Sources */,
+				AB8F1CC91FCF911B0017778F /* AccessorySelectionTableViewController.swift in Sources */,
 				AB90CD741FBD7235001810DD /* BrightnessTableViewCell.swift in Sources */,
 				AB8F1CC51FCF741D0017778F /* RoomSelectionTableViewController.swift in Sources */,
 			);
