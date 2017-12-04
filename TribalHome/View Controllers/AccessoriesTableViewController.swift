@@ -23,11 +23,11 @@ class AccessoriesTableViewController: UITableViewController {
     
         if let roomAccessories = room?.accessories {
             
-            return roomAccessories.filter { $0.category.categoryType != HMAccessoryCategoryTypeBridge }.sorted { $0.name < $1.name}
+            return roomAccessories.sorted { $0.name < $1.name}
             
         } else {
             
-            return home.accessories.filter { $0.category.categoryType != HMAccessoryCategoryTypeBridge }.sorted { $0.name < $1.name}
+            return home.accessories.sorted { $0.name < $1.name}
             
         }
         

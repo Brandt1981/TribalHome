@@ -19,7 +19,7 @@ class AccessorySelectionTableViewController: UITableViewController {
     
     private var availableAccessories: [HMAccessory] {
         
-        return home.roomForEntireHome().accessories
+        return home.roomForEntireHome().accessories.sorted { $0.name < $1.name}
         
     }
     

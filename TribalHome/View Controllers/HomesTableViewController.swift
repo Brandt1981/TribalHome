@@ -15,6 +15,12 @@ class HomesTableViewController: UITableViewController {
 
     private let homeManager = HMHomeManager()
     
+    private var homes: [HMHome] {
+        
+        return homeManager.homes.sorted { $0.name < $1.name}
+        
+    }
+    
     private var selectedHome: HMHome?
     
     override func viewDidLoad() {
@@ -51,7 +57,7 @@ extension HomesTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return homeManager.homes.count
+        return homes.count
         
     }
     
@@ -60,7 +66,7 @@ extension HomesTableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        let home = homeManager.homes[indexPath.row]
+        let home = homes[indexPath.row]
         
         cell.textLabel?.text = home.name
         
@@ -72,7 +78,7 @@ extension HomesTableViewController {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         
-        let home = homeManager.homes[indexPath.row]
+        let home = homes[indexPath.row]
         
         return !home.isPrimary
         
@@ -84,7 +90,7 @@ extension HomesTableViewController {
         
         if editingStyle == .delete {
             
-            let home = homeManager.homes[indexPath.row]
+            let home = homes[indexPath.row]
             
             let alert = UIAlertController(title: "Delete Home", message: "Are you sure you want to permanently delete \(home.name)?", preferredStyle: .actionSheet)
             
@@ -124,7 +130,7 @@ extension HomesTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedHome = homeManager.homes[indexPath.row]
+        selectedHome = homes[indexPath.row]
         
         performSegue(withIdentifier: homeSegueIdentifier, sender: self)
         

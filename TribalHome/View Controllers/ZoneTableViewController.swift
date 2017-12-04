@@ -27,6 +27,12 @@ class ZoneTableViewController: UITableViewController {
         
     }
     
+    private var rooms: [HMRoom] {
+        
+        return zone.rooms.sorted { $0.name < $1.name}
+        
+    }
+    
     private var selectedRoom: HMRoom?
     
     // MARK: - Navigation
@@ -54,7 +60,7 @@ extension ZoneTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return zone.rooms.count
+        return rooms.count
         
     }
     
@@ -63,7 +69,7 @@ extension ZoneTableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        let room = zone.rooms[indexPath.row]
+        let room = rooms[indexPath.row]
         
         cell.textLabel?.text = room.name
         
@@ -82,7 +88,7 @@ extension ZoneTableViewController {
         
         if editingStyle == .delete {
             
-            let room = zone.rooms[indexPath.row]
+            let room = rooms[indexPath.row]
             
             let alert = UIAlertController(title: "Remove Room", message: "Are you sure you want to remove \(room.name) from \(zone.name)?", preferredStyle: .actionSheet)
             
@@ -122,7 +128,7 @@ extension ZoneTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedRoom = zone.rooms[indexPath.row]
+        selectedRoom = rooms[indexPath.row]
         
         performSegue(withIdentifier: zoneRoomSegueIdentifier, sender: self)
         

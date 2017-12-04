@@ -17,10 +17,13 @@ class BrightnessTableViewCell: UITableViewCell {
         
         didSet {
             
+            activityIndicator.startAnimating()
             brightnessValueLabel.text = nil
             
             characteristic.readValue(completionHandler: { error in
                 
+                self.activityIndicator.stopAnimating()
+
                 guard error == nil else {
                     
                     return
@@ -35,19 +38,27 @@ class BrightnessTableViewCell: UITableViewCell {
         
     }
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var brightnessValueLabel: UILabel!
 
     @IBOutlet weak var brightnessSlider: UISlider!
     
     @IBAction func brightnessValueChanged(_ sender: UISlider) {
         
-        self.brightnessValueLabel.text = String(describing: Int(sender.value)) + "%"
+        activityIndicator.stopAnimating()
+        brightnessValueLabel.text = String(describing: Int(sender.value)) + "%"
         
     }
     
     @IBAction func brightnessUpdated(_ sender: UISlider) {
         
+        activityIndicator.startAnimating()
+        brightnessValueLabel.text = nil
+        
         characteristic.writeValue(Int(sender.value), completionHandler: { error in
+            
+            self.activityIndicator.stopAnimating()
             
             guard error == nil else {
                 

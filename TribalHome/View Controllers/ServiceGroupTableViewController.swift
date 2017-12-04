@@ -20,6 +20,12 @@ class ServiceGroupTableViewController: UITableViewController {
         }
         
     }
+    
+    private var services: [HMService] {
+        
+        return serviceGroup.services.sorted { $0.name < $1.name}
+        
+    }
 
 }
 
@@ -29,7 +35,7 @@ extension ServiceGroupTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return serviceGroup.services.count
+        return services.count
         
     }
     
@@ -38,7 +44,7 @@ extension ServiceGroupTableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        let service = serviceGroup.services[indexPath.row]
+        let service = services[indexPath.row]
         
         cell.textLabel?.text = service.name
         

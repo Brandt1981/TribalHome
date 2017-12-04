@@ -78,7 +78,19 @@ extension AccessoryBrowserTableViewController {
             guard error == nil else {
                 //TODO: Handle error better
                 print(String(describing: error))
-                self.accessoryBrowser.startSearchingForNewAccessories()
+                
+                let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .cancel, handler: { alertAction in
+                    
+                    self.accessoryBrowser.startSearchingForNewAccessories()
+                    
+                })
+                
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+                
                 return
             }
             

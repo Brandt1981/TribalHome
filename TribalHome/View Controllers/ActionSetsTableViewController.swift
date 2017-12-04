@@ -17,7 +17,7 @@ class ActionSetsTableViewController: UITableViewController {
     
     private var actionSets: [HMActionSet] {
         
-        return home.actionSets
+        return home.actionSets.sorted { $0.name < $1.name}
         
     }
     

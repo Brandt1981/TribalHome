@@ -16,18 +16,31 @@ class PowerStateTableViewCell: UITableViewCell {
     var characteristic: HMCharacteristic! {
         
         didSet {
+            
+            if let onState = self.characteristic.value as? Bool {
+                self.powerSwitch.setOn(onState, animated: true)
+            }
+            
+            characteristic.readValue(completionHandler: { error in
+                
+                guard error == nil else {
+                    
+                    return
+                }
+                
+                self.powerSwitch.setOn(self.characteristic.value as! Bool, animated: false)
+                
+            })
+            
             textLabel?.text = characteristic.localizedDescription
             powerSwitch.addTarget(self, action: #selector(handlePowerSwitchUpdate(_:)), for: .valueChanged)
-            
-            if let onState = characteristic.value as? Bool {
-                powerSwitch.setOn(onState, animated: false)
-            }
+
         }
         
     }
     
     private let powerSwitch = UISwitch()
-
+    
 }
 
 extension PowerStateTableViewCell {
@@ -52,9 +65,7 @@ extension PowerStateTableViewCell {
                 
             }
             
-            if let onState = self.characteristic.value as? Bool {
-                self.powerSwitch.setOn(onState, animated: true)
-            }
+            self.powerSwitch.setOn(self.characteristic.value as! Bool, animated: true)
             
         })
         

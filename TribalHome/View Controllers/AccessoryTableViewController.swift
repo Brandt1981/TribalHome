@@ -50,6 +50,14 @@ class AccessoryTableViewController: UITableViewController {
         
         tableView.register(UINib(nibName: String(describing: RotationDirectionTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: RotationDirectionTableViewCell.self))
         
+        accessory.delegate = self
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        
         for service in services {
             
             for characteristic in service.characteristics {
@@ -70,7 +78,7 @@ class AccessoryTableViewController: UITableViewController {
             
         }
         
-        accessory.delegate = self
+        tableView.reloadData()
         
     }
     

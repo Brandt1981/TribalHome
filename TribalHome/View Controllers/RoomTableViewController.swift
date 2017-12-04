@@ -27,6 +27,12 @@ class RoomTableViewController: UITableViewController {
         
     }
     
+    private var accessories: [HMAccessory] {
+        
+        return room.accessories.sorted { $0.name < $1.name}
+        
+    }
+    
     private var selectedAccessory: HMAccessory?
     
     // MARK: - Navigation
@@ -55,7 +61,7 @@ extension RoomTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return room.accessories.count
+        return accessories.count
         
     }
     
@@ -64,7 +70,7 @@ extension RoomTableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        let accessory = room.accessories[indexPath.row]
+        let accessory = accessories[indexPath.row]
         
         cell.textLabel?.text = accessory.name
         
@@ -83,7 +89,7 @@ extension RoomTableViewController {
         
         if editingStyle == .delete {
             
-            let accessory = room.accessories[indexPath.row]
+            let accessory = accessories[indexPath.row]
             
             let alert = UIAlertController(title: "Remove Accessory", message: "Are you sure you want to remove \(accessory.name) from \(room.name)?", preferredStyle: .actionSheet)
             
@@ -124,7 +130,7 @@ extension RoomTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedAccessory = room.accessories[indexPath.row]
+        selectedAccessory = accessories[indexPath.row]
         
         performSegue(withIdentifier: roomAccessorySegueIdentifier, sender: self)
         

@@ -17,7 +17,7 @@ class ServiceGroupsTableViewController: UITableViewController {
     
     private var serviceGroups: [HMServiceGroup] {
         
-        return home.serviceGroups
+        return home.serviceGroups.sorted { $0.name < $1.name}
         
     }
     

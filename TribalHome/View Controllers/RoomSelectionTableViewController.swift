@@ -19,7 +19,7 @@ class RoomSelectionTableViewController: UITableViewController {
     
     private var availableRooms: [HMRoom] {
         
-        return Array(Set(home.rooms).subtracting(Set(zone.rooms)))
+        return Array(Set(home.rooms).subtracting(Set(zone.rooms))).sorted { $0.name < $1.name}
         
     }
     

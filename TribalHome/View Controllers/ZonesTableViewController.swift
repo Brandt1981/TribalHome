@@ -17,7 +17,7 @@ class ZonesTableViewController: UITableViewController {
     
     var zones: [HMZone] {
         
-        return home.zones
+        return home.zones.sorted { $0.name < $1.name}
         
     }
 

@@ -17,7 +17,7 @@ class RoomsTableViewController: UITableViewController {
     
     private var rooms: [HMRoom] {
         
-        return home.rooms
+        return home.rooms.sorted { $0.name < $1.name}
         
     }
     
