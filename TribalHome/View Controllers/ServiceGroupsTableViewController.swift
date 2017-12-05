@@ -13,7 +13,15 @@ let serviceGroupSegueIdentifier = "ServiceGroupSegueIdentifier"
 
 class ServiceGroupsTableViewController: UITableViewController {
 
-    var home: HMHome!
+    var home: HMHome! {
+        
+        didSet {
+            
+            home.delegate = self
+            
+        }
+        
+    }
     
     private var serviceGroups: [HMServiceGroup] {
         
@@ -23,12 +31,19 @@ class ServiceGroupsTableViewController: UITableViewController {
     
     private var selectedServiceGroup: HMServiceGroup?
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let serviceGroupTVC = segue.destination as? ServiceGroupTableViewController {
             
+            serviceGroupTVC.home = home
             serviceGroupTVC.serviceGroup = selectedServiceGroup
             
         }
@@ -50,6 +65,12 @@ extension ServiceGroupsTableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
         return home.name
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        return "Service groups allow you to control a group of services through Siri."
         
     }
     
@@ -185,6 +206,30 @@ extension ServiceGroupsTableViewController {
         }
         
         present(alertController, animated: true, completion: nil)
+        
+    }
+    
+}
+
+// MARK: - HMHomeDelegate
+
+extension ServiceGroupsTableViewController: HMHomeDelegate {
+    
+    func home(_ home: HMHome, didAdd group: HMServiceGroup) {
+        
+        tableView.reloadData()
+        
+    }
+    
+    func home(_ home: HMHome, didRemove group: HMServiceGroup) {
+        
+        tableView.reloadData()
+        
+    }
+    
+    func home(_ home: HMHome, didUpdateNameFor group: HMServiceGroup) {
+        
+        tableView.reloadData()
         
     }
     

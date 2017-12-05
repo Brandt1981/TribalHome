@@ -12,6 +12,7 @@
 		AB1CF53B1FBE3AE6006A233D /* IdentifyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB1CF5391FBE3AE6006A233D /* IdentifyTableViewCell.xib */; };
 		AB1F03031FC5565100582433 /* RoomsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1F03021FC5565100582433 /* RoomsTableViewController.swift */; };
 		AB1F03051FC5590000582433 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1F03041FC5590000582433 /* HomeTableViewController.swift */; };
+		AB32DD311FD612550028BFC0 /* ServiceSelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB32DD301FD612550028BFC0 /* ServiceSelectionTableViewController.swift */; };
 		AB407DA01FC9078C00BC2F7B /* AccessoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB407D9F1FC9078C00BC2F7B /* AccessoryTableViewController.swift */; };
 		AB43AEB71FBBB5C100F0D2C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB43AEAE1FBBB5C100F0D2C2 /* Assets.xcassets */; };
 		AB43AEB81FBBB5C100F0D2C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB43AEB01FBBB5C100F0D2C2 /* LaunchScreen.storyboard */; };
@@ -54,6 +55,7 @@
 		AB1CF5391FBE3AE6006A233D /* IdentifyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentifyTableViewCell.xib; sourceTree = "<group>"; };
 		AB1F03021FC5565100582433 /* RoomsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomsTableViewController.swift; sourceTree = "<group>"; };
 		AB1F03041FC5590000582433 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		AB32DD301FD612550028BFC0 /* ServiceSelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSelectionTableViewController.swift; sourceTree = "<group>"; };
 		AB407D9F1FC9078C00BC2F7B /* AccessoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryTableViewController.swift; sourceTree = "<group>"; };
 		AB43AEAE1FBBB5C100F0D2C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB43AEAF1FBBB5C100F0D2C2 /* TribalHome.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = TribalHome.entitlements; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				AB8F1CC61FCF82500017778F /* RoomTableViewController.swift */,
 				AB89E5AB1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift */,
 				AB8F1CC01FCF688C0017778F /* ServiceGroupTableViewController.swift */,
+				AB32DD301FD612550028BFC0 /* ServiceSelectionTableViewController.swift */,
 				AB89E5AF1FC5ED2A005ADF99 /* ZonesTableViewController.swift */,
 				AB8F1CC21FCF6C300017778F /* ZoneTableViewController.swift */,
 			);
@@ -297,6 +300,7 @@
 				AB1CF53A1FBE3AE6006A233D /* IdentifyTableViewCell.swift in Sources */,
 				ABE0002B1FBE3F82004A1009 /* HueTableViewCell.swift in Sources */,
 				AB8F1CC71FCF82500017778F /* RoomTableViewController.swift in Sources */,
+				AB32DD311FD612550028BFC0 /* ServiceSelectionTableViewController.swift in Sources */,
 				ABE0002F1FBE3F90004A1009 /* SaturationTableViewCell.swift in Sources */,
 				AB407DA01FC9078C00BC2F7B /* AccessoryTableViewController.swift in Sources */,
 				AB8F1CC91FCF911B0017778F /* AccessorySelectionTableViewController.swift in Sources */,
