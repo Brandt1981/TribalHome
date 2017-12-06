@@ -15,7 +15,15 @@ let accessorySelectionSegueIdentifier = "AccessorySelectionSegueIdentifier"
 
 class RoomTableViewController: UITableViewController {
 
-    var home: HMHome!
+    var home: HMHome! {
+        
+        didSet {
+            
+            home.delegate = self
+            
+        }
+        
+    }
     
     var room: HMRoom! {
         
@@ -46,8 +54,8 @@ class RoomTableViewController: UITableViewController {
             
         } else if let navController = segue.destination as? UINavigationController, let accessorySelectionTVC = navController.topViewController as? AccessorySelectionTableViewController {
             
-            accessorySelectionTVC.home = home
-            accessorySelectionTVC.room = room
+            accessorySelectionTVC.accessories = home.roomForEntireHome().accessories
+            accessorySelectionTVC.delegate = self
             
         }
         
@@ -137,6 +145,81 @@ extension RoomTableViewController {
     }
 }
 
+// MARK: - AccessorySelectionDelegate
+
+extension RoomTableViewController: AccessorySelectionDelegate {
+    
+    func accessorySelectionTableViewController(_ accessorySelectionTableViewController: AccessorySelectionTableViewController, didSelectAccessories accessories: [HMAccessory]) {
+        
+        for accessory in accessories {
+            
+            self.home.assignAccessory(accessory, to: room, completionHandler: { error in
+                
+                guard error == nil else {
+                    
+                    print("Error assigning accessory \(String(describing: accessory)), error: \(String(describing: error))")
+                    
+                    return
+                }
+                
+                self.tableView.reloadData()
+                
+            })
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+}
+
+// MARK: - HMHomeDelegate
+
+extension RoomTableViewController: HMHomeDelegate {
+    
+    func home(_ home: HMHome, didRemove room: HMRoom) {
+        
+        if room == self.room {
+            
+            navigationController?.popViewController(animated: true)
+            
+        }
+        
+    }
+    
+    func home(_ home: HMHome, didUpdateNameFor room: HMRoom) {
+        
+        if room == self.room {
+            
+            navigationItem.title = room.name
+            
+        }
+        
+    }
+    
+    func home(_ home: HMHome, didRemove accessory: HMAccessory) {
+        
+        if room.accessories.contains(accessory) {
+            
+            tableView.reloadData()
+            
+        }
+        
+    }
+    
+    func home(_ home: HMHome, didUpdate room: HMRoom, for accessory: HMAccessory) {
+        
+        if room == self.room {
+            
+            tableView.reloadData()
+            
+        }
+        
+    }
+    
+}
+
 // MARK: - IBAction
 
 extension RoomTableViewController {
@@ -145,27 +228,6 @@ extension RoomTableViewController {
         
         performSegue(withIdentifier: accessorySelectionSegueIdentifier, sender: self)
 
-    }
-    
-    @IBAction private func unwindToRoomTVC(segue: UIStoryboardSegue) {
-        
-        if let accessorySelectionTVC = segue.source as? AccessorySelectionTableViewController {
-            
-            for accessory in accessorySelectionTVC.selectedAccessories {
-                
-                self.home.assignAccessory(accessory, to: room, completionHandler: { error in
-                    
-                    guard error == nil else {
-                        return
-                    }
-                    
-                    self.tableView.reloadData()
-                    
-                })
-                
-            }
-        }
-        
     }
     
 }

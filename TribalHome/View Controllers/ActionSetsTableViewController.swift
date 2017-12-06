@@ -29,6 +29,7 @@ class ActionSetsTableViewController: UITableViewController {
         
         if let actionSetTVC = segue.destination as? ActionSetTableViewController {
             
+            actionSetTVC.home = home
             actionSetTVC.actionSet = selectedActionSet
             
         }

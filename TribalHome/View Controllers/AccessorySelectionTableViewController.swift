@@ -9,19 +9,27 @@
 import HomeKit
 import UIKit
 
-class AccessorySelectionTableViewController: UITableViewController {
+protocol AccessorySelectionDelegate {
+    
+    func accessorySelectionTableViewController(_ accessorySelectionTableViewController: AccessorySelectionTableViewController, didSelectAccessories accessories: [HMAccessory])
+    
+}
 
-    var home: HMHome!
+class AccessorySelectionTableViewController: UITableViewController {
     
-    var room: HMRoom!
-    
-    var selectedAccessories = [HMAccessory]()
-    
-    private var availableAccessories: [HMAccessory] {
+    var accessories: [HMAccessory]! {
         
-        return home.roomForEntireHome().accessories.sorted { $0.name < $1.name}
-        
+        didSet {
+            
+            accessories.sort { $0.name < $1.name }
+            
+        }
+
     }
+    
+    var delegate: AccessorySelectionDelegate!
+    
+    private var selectedAccessories = [HMAccessory]()
     
 }
 
@@ -31,7 +39,7 @@ extension AccessorySelectionTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return availableAccessories.count
+        return accessories.count
         
     }
     
@@ -40,7 +48,7 @@ extension AccessorySelectionTableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
-        let accessory = availableAccessories[indexPath.row]
+        let accessory = accessories[indexPath.row]
         
         cell.textLabel?.text = accessory.name
         
@@ -65,7 +73,7 @@ extension AccessorySelectionTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let accessory = availableAccessories[indexPath.row]
+        let accessory = accessories[indexPath.row]
         
         if selectedAccessories.contains(accessory) {
             
@@ -85,4 +93,15 @@ extension AccessorySelectionTableViewController {
         
     }
     
+}
+
+// MARK: - IBAction
+
+extension AccessorySelectionTableViewController {
+    
+    @IBAction private func doneButtonTapped() {
+        
+        delegate.accessorySelectionTableViewController(self, didSelectAccessories: selectedAccessories)
+        
+    }
 }

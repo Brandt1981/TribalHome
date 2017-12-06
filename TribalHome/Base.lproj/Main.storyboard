@@ -366,6 +366,16 @@
                             <outlet property="delegate" destination="l9N-OR-geF" id="f4S-1g-KPD"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Action Set" id="iIE-Fg-t0D">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FcZ-bL-6bq">
+                            <connections>
+                                <action selector="addActionButtonTapped" destination="l9N-OR-geF" id="9x7-fe-L0s"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="DEm-8R-Udh" kind="presentation" identifier="ActionAccessorySelectionSegueIdentifier" id="ZgC-uD-WVr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23W-5k-Xg4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -596,13 +606,12 @@
                     <navigationItem key="navigationItem" title="Accessories" id="uXe-6Y-LLP">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="kaR-S6-Kqi">
                             <connections>
-                                <segue destination="yY8-Tg-hZI" kind="unwind" unwindAction="unwindToRoomTVCWithSegue:" id="FQT-hk-1Te"/>
+                                <action selector="doneButtonTapped" destination="JUb-Co-ir1" id="Qvx-K3-sH6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0E-gJ-L4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="yY8-Tg-hZI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5393" y="-2728"/>
         </scene>
@@ -1028,6 +1037,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="ZgC-uD-WVr"/>
         <segue reference="e0R-KH-NFN"/>
         <segue reference="uGh-Ep-goQ"/>
     </inferredMetricsTieBreakers>
