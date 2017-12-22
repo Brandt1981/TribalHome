@@ -9,6 +9,8 @@
 import HomeKit
 import UIKit
 
+let editHomeSegueIdentifier = "EditHomeSegueIdentifier"
+
 let accessoriesSegueIdentifier = "AccessoriesSegueIdentifier"
 
 let roomsSegueIdentifier = "RoomsSegueIdentifier"
@@ -19,8 +21,12 @@ let serviceGroupsSegueIdentifier = "ServiceGroupsSegueIdentifier"
 
 let actionSetsSegueIdentifier = "ActionSetsSegueIdentifier"
 
+let usersSegueIdentifier = "UsersSegueIdentifier"
+
 class HomeTableViewController: UITableViewController {
 
+    var homeManager: HMHomeManager!
+    
     var home: HMHome! {
         
         didSet {
@@ -34,7 +40,6 @@ class HomeTableViewController: UITableViewController {
     private enum HomeRow: Int {
         
         case accessories, rooms, zones, serviceGroups, actionSets
-
         
     }
 
@@ -91,9 +96,30 @@ class HomeTableViewController: UITableViewController {
             
             actionSetsTVC.home = home
             
+        } else if let navController = segue.destination as? UINavigationController, let editHomeTVC = navController.topViewController as? EditHomeTableViewController {
+            
+            editHomeTVC.homeManager = homeManager
+            editHomeTVC.home = home
+            
         }
         
     }
     
+}
 
+// MARK: - IBAction
+
+extension HomeTableViewController {
+    
+    @IBAction private func editHomeTapped() {
+        
+        performSegue(withIdentifier: editHomeSegueIdentifier, sender: self)
+        
+    }
+    
+    @IBAction private func unwindToHomeTVC(segue: UIStoryboardSegue) {
+        
+        
+    }
+    
 }

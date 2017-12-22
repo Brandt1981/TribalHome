@@ -43,6 +43,7 @@ class HomesTableViewController: UITableViewController {
         
         if let homeTVC = segue.destination as? HomeTableViewController, let home = selectedHome {
             
+            homeTVC.homeManager = homeManager
             homeTVC.home = home
             
         }
@@ -199,6 +200,12 @@ extension HomesTableViewController {
         
         present(alertController, animated: true, completion: nil)
 
+    }
+    
+    @IBAction private func unwindToHomesTVC(segue: UIStoryboardSegue) {
+        
+        tableView.reloadData()
+        
     }
     
 }

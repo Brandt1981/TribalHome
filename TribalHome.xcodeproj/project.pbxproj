@@ -21,6 +21,7 @@
 		AB43AEBB1FBBB5C100F0D2C2 /* HomesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEB51FBBB5C100F0D2C2 /* HomesTableViewController.swift */; };
 		AB43AEBE1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEBD1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift */; };
 		AB43AEC01FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB43AEBF1FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift */; };
+		AB570C251FEC4F91005928C8 /* EditHomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB570C241FEC4F91005928C8 /* EditHomeTableViewController.swift */; };
 		AB89E5AC1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89E5AB1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift */; };
 		AB89E5AE1FC5EB22005ADF99 /* ActionSetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */; };
 		AB89E5B01FC5ED2A005ADF99 /* ZonesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB89E5AF1FC5ED2A005ADF99 /* ZonesTableViewController.swift */; };
@@ -32,6 +33,7 @@
 		AB8F1CC91FCF911B0017778F /* AccessorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8F1CC81FCF911B0017778F /* AccessorySelectionTableViewController.swift */; };
 		AB90CD721FBD6FAD001810DD /* BrightnessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB90CD701FBD6FAD001810DD /* BrightnessTableViewCell.xib */; };
 		AB90CD741FBD7235001810DD /* BrightnessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB90CD731FBD7235001810DD /* BrightnessTableViewCell.swift */; };
+		ABDEAA4D1FEDC06A0049BC2F /* EditNameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDEAA4C1FEDC06A0049BC2F /* EditNameTableViewController.swift */; };
 		ABE0002B1FBE3F82004A1009 /* HueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE000291FBE3F82004A1009 /* HueTableViewCell.swift */; };
 		ABE0002C1FBE3F82004A1009 /* HueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABE0002A1FBE3F82004A1009 /* HueTableViewCell.xib */; };
 		ABE0002F1FBE3F90004A1009 /* SaturationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABE0002D1FBE3F90004A1009 /* SaturationTableViewCell.swift */; };
@@ -66,6 +68,7 @@
 		AB43AEB61FBBB5C100F0D2C2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB43AEBD1FBBBF7700F0D2C2 /* AccessoriesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoriesTableViewController.swift; sourceTree = "<group>"; };
 		AB43AEBF1FBBD1F300F0D2C2 /* AccessoryBrowserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessoryBrowserTableViewController.swift; sourceTree = "<group>"; };
+		AB570C241FEC4F91005928C8 /* EditHomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditHomeTableViewController.swift; sourceTree = "<group>"; };
 		AB89E5AB1FC5EB03005ADF99 /* ServiceGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceGroupsTableViewController.swift; sourceTree = "<group>"; };
 		AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSetsTableViewController.swift; sourceTree = "<group>"; };
 		AB89E5AF1FC5ED2A005ADF99 /* ZonesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonesTableViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 		AB8F1CC81FCF911B0017778F /* AccessorySelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessorySelectionTableViewController.swift; sourceTree = "<group>"; };
 		AB90CD701FBD6FAD001810DD /* BrightnessTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrightnessTableViewCell.xib; sourceTree = "<group>"; };
 		AB90CD731FBD7235001810DD /* BrightnessTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightnessTableViewCell.swift; sourceTree = "<group>"; };
+		ABDEAA4C1FEDC06A0049BC2F /* EditNameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNameTableViewController.swift; sourceTree = "<group>"; };
 		ABE000291FBE3F82004A1009 /* HueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueTableViewCell.swift; sourceTree = "<group>"; };
 		ABE0002A1FBE3F82004A1009 /* HueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HueTableViewCell.xib; sourceTree = "<group>"; };
 		ABE0002D1FBE3F90004A1009 /* SaturationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaturationTableViewCell.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				AB89E5AD1FC5EB22005ADF99 /* ActionSetsTableViewController.swift */,
 				AB8F1CBE1FCE8F290017778F /* ActionSetTableViewController.swift */,
 				ABFF9FFD1FC937BD007E1CDC /* EditAccessoryTableViewController.swift */,
+				AB570C241FEC4F91005928C8 /* EditHomeTableViewController.swift */,
+				ABDEAA4C1FEDC06A0049BC2F /* EditNameTableViewController.swift */,
 				AB43AEB51FBBB5C100F0D2C2 /* HomesTableViewController.swift */,
 				AB1F03041FC5590000582433 /* HomeTableViewController.swift */,
 				AB8F1CC41FCF741D0017778F /* RoomSelectionTableViewController.swift */,
@@ -285,6 +291,8 @@
 				AB89E5B01FC5ED2A005ADF99 /* ZonesTableViewController.swift in Sources */,
 				AB43AEBB1FBBB5C100F0D2C2 /* HomesTableViewController.swift in Sources */,
 				AB89E5AE1FC5EB22005ADF99 /* ActionSetsTableViewController.swift in Sources */,
+				ABDEAA4D1FEDC06A0049BC2F /* EditNameTableViewController.swift in Sources */,
+				AB570C251FEC4F91005928C8 /* EditHomeTableViewController.swift in Sources */,
 				ABFFA0051FC9559C007E1CDC /* RotationDirectionTableViewCell.swift in Sources */,
 				ABF25C941FBD281600524682 /* PowerStateTableViewCell.swift in Sources */,
 				AB8F1CBF1FCE8F290017778F /* ActionSetTableViewController.swift in Sources */,

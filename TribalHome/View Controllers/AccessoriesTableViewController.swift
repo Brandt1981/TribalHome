@@ -96,11 +96,11 @@ extension AccessoriesTableViewController {
             
             let accessory = accessories[indexPath.row]
             
-            let alert = UIAlertController(title: "Delete Accessory", message: "Are you sure you want to permanently delete \(accessory.name)?", preferredStyle: .actionSheet)
+            let alert = UIAlertController(title: "Remove Accessory", message: "Are you sure you want to permanently remove \(accessory.name)?", preferredStyle: .actionSheet)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
             
-            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { deleteAction in
+            let removeAction = UIAlertAction(title: "Remove", style: .destructive, handler: { deleteAction in
                 
                 self.home.removeAccessory(accessory, completionHandler: { error in
                     
@@ -118,7 +118,7 @@ extension AccessoriesTableViewController {
                 
             })
             
-            alert.addAction(deleteAction)
+            alert.addAction(removeAction)
             alert.addAction(cancelAction)
             
             present(alert, animated: true, completion: nil)
